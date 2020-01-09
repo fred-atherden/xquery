@@ -1,0 +1,2 @@
+<list xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" xmlns:mml="http://www.w3.org/1998/Math/MathML">{for $x in collection('articles')//*:article//*:element-citation[@publication-type="report"][*:ext-link]
+return $x}</list>

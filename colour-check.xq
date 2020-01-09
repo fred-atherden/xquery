@@ -1,0 +1,2 @@
+distinct-values(for $x in collection('articles')//*:article[((descendant::*:named-content[starts-with(@content-type,'author-callout')]) or (descendant::*:td[starts-with(@style,'author-callout')]) or (descendant::*:th[starts-with(@style,'author-callout')]) )]
+return $x//article-id[@pub-id-type="publisher-id"]/text())

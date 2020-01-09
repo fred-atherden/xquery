@@ -1,0 +1,2 @@
+distinct-values(for $x in collection('articles')//*:article[(descendant::*:subject[text() = ('Research Article', 'Short Report', 'Tools and Resources', 'Research Advance', 'Registered Report', 'Replication Study', 'Research Communication')])]/*:body/*:sec/*:title
+return normalize-space($x))

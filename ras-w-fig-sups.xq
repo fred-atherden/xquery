@@ -1,0 +1,2 @@
+distinct-values(for $x in collection('articles')//*:article[(descendant::*:subject[text() = 'Research Article']) and (descendant::*:body) and (descendant::*:fig[matches(*:label,'[Ss]upplement')])]
+return $x//*:article-id[@pub-id-type="publisher-id"]/text())
