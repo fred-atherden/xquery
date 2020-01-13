@@ -1,10 +1,14 @@
-(: In order for this query to functino you have to installed the schematron module:
+(: In order for this query to function you have to installed the schematron module for BaseX:
 'repo:install('https://github.com/Schematron/schematron-basex/raw/master/dist/schematron-basex-1.2.xar')'
 :)
 
 import module namespace schematron = "http://github.com/Schematron/schematron-basex";
 
-let $xml := doc('/Users/fredatherden/desktop/elife51101.xml')
+let $path := '/Users/fredatherden/desktop/elife50084.xml'
+let $xml := doc($path)
+let $filename := tokenize($path,'/')[last()]
+let $folder := substring-before($path,$filename)
+let $report-path := ($folder||substring-before($filename,'.xml')||'-report.xml')
 
 let $sch := schematron:compile(doc('/Users/fredatherden/Documents/GitHub/eLife-JATS-schematron/src/pre-JATS-schematron.sch'))
 
@@ -22,7 +26,6 @@ modify(
 )
 return $copy
 
-return $report-2
-
+return file:write($report-path,$report-2)
 
 
