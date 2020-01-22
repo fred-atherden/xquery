@@ -16,19 +16,13 @@ let $sch := schematron:compile($schema2)
 
 (: Folder containing eLife zips taken from AWS bucket 'elife-production-processes' :)
 let $folder := '/Users/fredatherden/Desktop/test-folder'
-let $zips := file:list($folder, true(), '*.zip')
+let $files := file:list($folder, true(), '*.xml')
 
 let $report := 
 <report xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:saxon="http://saxon.sf.net/" xmlns:schold="http://www.ascc.net/xml/schematron" xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:dc="http://purl.org/dc/terms/" xmlns:e="https://elifesciences.org/namespace" xmlns:java="http://www.java.com/">{
-  for $z in $zips
-  let $zip := ($folder||'/'||$z)
-  let $archive := file:read-binary($zip)
-  let $zip-entries :=  archive:entries($archive)
-  let $xml := for $entry in $zip-entries[ends-with(., '.xml')]
-              return archive:extract-text($archive, $entry)
-  let $article := fn:parse-xml($xml)[descendant::*:article]
+  for $z in $files
+  let $article := doc($folder||'/'||$z)
   let $svrl := schematron:validate($article, $sch)
-  let $ignore-message-ids := ('pre-test-r-article-d-letter','test-r-article-a-reply','pre-pub-date-test-1','pre-pub-date-test-2','code-fork-info')
   return 
   <item name="{$z}" valid="{if ($svrl//(*:failed-assert[@role="error"]|*:successful-report[@role="error"])) then 'no' else 'yes'}">{$svrl//(*:failed-assert|*:successful-report)}</item>
 }</report>
