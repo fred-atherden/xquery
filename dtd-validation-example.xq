@@ -1,0 +1,1 @@
+validate:dtd-report(doc('/Users/fredatherden/desktop/elife49979.xml'),'/Users/fredatherden/Documents/dtds/green-dtd/JATS-archivearticle1-mathml3.dtd')

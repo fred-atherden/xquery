@@ -48,5 +48,5 @@ for $article in collection('articles')//*:article
   
   for $id in $final-ids
   order by $id
-  return ('- '||$id)  
+  return ("                - "||"'"||$id||"'")  
   
