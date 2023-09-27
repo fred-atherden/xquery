@@ -1,0 +1,2 @@
+for $x in collection('articles')//*:sub-article//*:xref[@ref-type="fig" and contains(.,'Author response') and not(parent::*:italic) and matches(following-sibling::text()[1],'^[^\s\)\.,;:\?!\]]&quot;&apos;')]
+return ($x/base-uri()|| ' --- ' ||serialize($x/parent::*,map{'method':'xml','indent':'no'}))

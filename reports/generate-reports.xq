@@ -4,7 +4,7 @@
 import module namespace schematron = "http://github.com/Schematron/schematron-basex";
 
 (: Define version of schematron used that week :)
-let $commit := '3d5f2a3525a14ac1c5d42fc8f482052c19b9bac9'
+let $commit := 'bf2d62855684465a2934f891f736aeccbad51e9a'
 (: Compile schematron :)
 let $src := '/Users/fredatherden/Documents/GitHub/eLife-JATS-schematron/src/'
 let $schema := fetch:xml('https://raw.githubusercontent.com/elifesciences/eLife-JATS-schematron/'||$commit||'/src/pre-JATS-schematron.sch')

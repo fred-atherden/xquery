@@ -1,0 +1,16 @@
+<list>
+    <item name="Conceptualization" regex="conceptuali[sz]ation"/>
+    <item name="Data curation" regex="data\s*curation"/>
+    <item name="Formal analysis" regex="formal\s*analysis"/>
+    <item name="Funding acquisition" regex="funding\s*acquisition"/>
+    <item name="Investigation" regex="investigation"/>
+    <item name="Methodology" regex="methodology"/>
+    <item name="Project administration" regex="project\s*administration"/>
+    <item name="Resources" regex="resources"/>
+    <item name="Software" regex="software"/>
+    <item name="Supervision" regex="supervision"/>
+    <item name="Validation" regex="validation"/>
+    <item name="Visualization" regex="vi[sz]uali[sz]ation"/>
+    <item name="Writing-od" regex="writing.{1,3}original\s*draft"/>
+    <item name="Writing-re" regex="writing.{1,3}review(ing)?\s*(&amp;|and)\s*editing"/>
+</list>
