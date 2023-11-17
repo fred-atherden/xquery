@@ -1,13 +1,8 @@
 let $articles := <list>
-<article id="86791" version="1"/>
-<article id="87698" version="1"/>
-<article id="87196" version="1"/>
-<article id="86638" version="1"/>
-<article id="87912" version="1"/>
-<article id="88205" version="1"/>
-<article id="88319" version="1"/>
-<article id="87037" version="2"/>
-<article id="88058" version="2"/>
+<article id="90755" version="2"/>
+<article id="90486" version="2"/>
+<article id="90505" version="1"/>
+<article id="90636" version="2"/>
 </list>
 let $xml-loc := 'https://raw.githubusercontent.com/elifesciences/enhanced-preprints-data/master/data/'
 let $xml-dir := '/Users/fredatherden/Documents/GitHub/elife-crossref-xml-generation/tmp/biorxiv/'

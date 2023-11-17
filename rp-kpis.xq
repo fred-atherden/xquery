@@ -1,4 +1,4 @@
-declare variable $month := '2023-08';
+declare variable $month := '2023-10';
 
 declare function local:median($vals){
   let $values := for $x in $vals order by number($x) ascending return $x

@@ -1,4 +1,4 @@
-declare variable $month := '2023-08';
+declare variable $month := '2023-10';
 
 let $json := json:parse(fetch:text('https://raw.githubusercontent.com/elifesciences/enhanced-preprints-client/master/manuscripts.json'))
 

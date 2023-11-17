@@ -1,18 +1,6 @@
-declare variable $ms-json := json:parse(fetch:text('https://raw.githubusercontent.com/elifesciences/enhanced-preprints-client/master/manuscripts.json'));
+declare variable $folder := '/Users/fredatherden/Desktop/assessment-terms/';
 
-declare function local:getAssessmentTerms($msid,$version) {
-  (: Wait one second before making the next request so as not to overload server :)
-  prof:sleep(1000),
-  let $endpoint := 'https://staging--epp.elifesciences.org/api/reviewed-preprints/'||$msid||'/v'||$version||'/reviews'
-  let $text := try {lazy:cache(fetch:text($endpoint))}
-               catch * {''}
-  where $text
-  let $assessment := json:parse($text)//*:evaluationSummary/*:text
-  let $terms := analyze-string(lower-case($assessment),'landmark|fundamental|important|valuable|useful|exceptional|compelling|convincing|solid|incomplete|inadequate|incompletely|inadequately|convincingly')//*:match/data()
-  return $terms
-};
-
-for $ms in $ms-json//*:manuscripts/*[*]
-let $terms := local:getAssessmentTerms($ms/*:msid,$ms/*:version)
-where some $term in $terms satisfies (contains($term,'inadequate'))
-return $ms/*:msid||' '||string-join($terms,', ')
+for $file in file:list($folder)[ends-with(.,'.xml')]
+let $xml := doc($folder||$file)
+where $xml//*:terms/@version="1" and  $xml//*:term[@type="strength" and .='inadequate']
+return 'https://elifesciences.org/reviewed-preprints/'||$xml//*:terms/@id||'v'||$xml//*:terms/@version

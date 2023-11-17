@@ -1,6 +1,6 @@
 (: PULL LATEST POA/VOR XML FROM GIT REPO AND UPDATE DB articles :)
 (: UPDATE $month :)
-declare variable $month := '2023-08';
+declare variable $month := '2023-10';
 
 declare function local:get-name($name) as xs:string* {
   if ($name/name() = 'name') then (

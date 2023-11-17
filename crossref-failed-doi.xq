@@ -1,4 +1,4 @@
-let $csv := csv:parse(file:read-text('/Users/fredatherden/Downloads/10.7554_unres_2023-08.csv'))
+let $csv := csv:parse(file:read-text('/Users/fredatherden/Downloads/10.7554_unres_2023-10.csv'))
 
 for $x in $csv//*:record
 (: Pick out the ones with valid DOIs :)

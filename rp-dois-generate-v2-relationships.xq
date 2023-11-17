@@ -1,18 +1,18 @@
 declare namespace rel = 'http://www.crossref.org/relations.xsd';
 let $articles := <list>
-<article id="88468" version="1"/>
-<article id="86191" version="1"/>
-<article id="88733" version="1"/>
-<article id="88275" version="1"/>
-<article id="88900" version="1"/>
-<article id="88279" version="1"/>
-<article id="88521" version="1"/>
-<article id="87930" version="1"/>
-<article id="89371" version="1"/>
-<article id="87238" version="1"/>
-<article id="89093" version="1"/>
-<article id="88782" version="1"/>
-<article id="87616" version="2"/>
+<article id="91705" version="1"/>
+<article id="91498" version="1"/>
+<article id="87518" version="2"/>
+<article id="87611" version="2"/>
+<article id="88087" version="2"/>
+<article id="88637" version="2"/>
+<article id="88659" version="2"/>
+<article id="89467" version="2"/>
+<article id="91011" version="1"/>
+<article id="91861" version="2"/>
+<article id="91976" version="1"/>
+<article id="92201" version="2"/>
+<article id="90214" version="2"/>
 </list>
 
 let $xml-dir := '/Users/fredatherden/Desktop/rp-dois/'
